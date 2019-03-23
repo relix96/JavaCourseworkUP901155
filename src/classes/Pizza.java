@@ -11,17 +11,17 @@ package classes;
  */
 public class Pizza {
     
-    private Double size;
-    private String crust;
-    private String sauce;
-    private String topping1;
-    private String topping2;
+    private Size size;
+    private Crust crust;
+    private Sauce sauce;
+    private Topping topping1;
+    private Topping topping2;
     
     public Pizza(){
         
     }
     
-    public Pizza(Double size, String crust, String sauce, String topping1, String topping2){
+    public Pizza(Size size, Crust crust, Sauce sauce, Topping topping1, Topping topping2){
         this.size = size;
         this.crust = crust;
         this.sauce = sauce;
@@ -31,43 +31,43 @@ public class Pizza {
     
     
     
-    public String getCrust() {
+    public Crust getCrust() {
         return crust;
     }
 
-    public Double getSize() {
+    public Size getSize() {
         return size;
     }
 
-    public String getTopping1() {
+    public Topping getTopping1() {
         return topping1;
     }
 
-    public String getTopping2() {
+    public Topping tTopping2() {
         return topping2;
     }
 
-    public String getSauce() {
+    public Sauce getSauce() {
         return sauce;
     }
 
-    public void setCrust(String crust) {
+    public void setCrust(Crust crust) {
         this.crust = crust;
     }
 
-    public void setSauce(String sauce) {
+    public void setSauce(Sauce sauce) {
         this.sauce = sauce;
     }
 
-    public void setSize(Double size) {
+    public void setSize(Size size) {
         this.size = size;
     }
 
-    public void setTopping1(String topping1) {
+    public void setTopping1(Topping topping1) {
         this.topping1 = topping1;
     }
 
-    public void setTopping2(String topping2) {
+    public void setTopping2(Topping topping2) {
         this.topping2 = topping2;
     }
     
