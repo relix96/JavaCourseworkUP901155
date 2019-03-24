@@ -16,6 +16,8 @@ public class Pizza {
     private Sauce sauce;
     private Topping topping1;
     private Topping topping2;
+    private Boolean order;
+    
     
     public Pizza(){
         
@@ -29,6 +31,9 @@ public class Pizza {
         this.topping2= topping2;
     }
     
+    public Boolean getOrder(){
+        return order;
+    }
     
     
     public Crust getCrust() {
@@ -43,7 +48,7 @@ public class Pizza {
         return topping1;
     }
 
-    public Topping tTopping2() {
+    public Topping gettTopping2() {
         return topping2;
     }
 
@@ -54,6 +59,10 @@ public class Pizza {
     public void setCrust(Crust crust) {
         this.crust = crust;
     }
+    
+    public void setOrder(Boolean order){
+        this.order = order;
+    }    
 
     public void setSauce(Sauce sauce) {
         this.sauce = sauce;
