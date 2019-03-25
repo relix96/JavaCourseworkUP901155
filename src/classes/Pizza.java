@@ -5,37 +5,54 @@
  */
 package classes;
 
+import Enums.Size;
+import Enums.Topping;
+import Enums.Sauce;
+import Enums.Crust;
+
 /**
  *
  * @author Zé Maria Valentim
  */
 public class Pizza {
-    
+
     private Size size;
     private Crust crust;
     private Sauce sauce;
     private Topping topping1;
     private Topping topping2;
-    private Boolean order;
-    
-    
-    public Pizza(){
-        
+
+    public Pizza() {
+
     }
-    
-    public Pizza(Size size, Crust crust, Sauce sauce, Topping topping1, Topping topping2){
+
+    public Pizza(Size size, Crust crust, Sauce sauce, Topping topping1, Topping topping2) {
         this.size = size;
         this.crust = crust;
         this.sauce = sauce;
         this.topping1 = topping1;
-        this.topping2= topping2;
+        this.topping2 = topping2;
     }
-    
-    public Boolean getOrder(){
-        return order;
+
+    public double pizzaCost() {
+        double cost = size.getSize() + crust.getCrust() + sauce.getSauce() + topping1.getTopping() * 5 + topping2.getTopping() * 4;
+        return cost;
     }
-    
-    
+
+    public String pizzaInfo() {
+        String info = "";
+        double cost = pizzaCost();
+
+        info += "TOTAL COST: £" + String.valueOf(cost) + "\n";
+        info += String.valueOf(size) + "Size: " + "£" + size.getSize() + "\n";
+        info += String.valueOf(crust) + "Crust: " + "£" + crust.getCrust() + "\n";
+        info += "BASE COST: " + "£" + sauce.getSauce() + "\n";
+        info += String.valueOf(topping1) + ": " + "5*£" + topping1.getTopping() + "=£" + topping1.getTopping() * 5 + "\n";
+        info += String.valueOf(topping2) + ": " + "4*£" + topping2.getTopping() + "=£" + topping2.getTopping() * 4 + "\n\n";
+
+        return info;
+    }
+
     public Crust getCrust() {
         return crust;
     }
@@ -59,10 +76,6 @@ public class Pizza {
     public void setCrust(Crust crust) {
         this.crust = crust;
     }
-    
-    public void setOrder(Boolean order){
-        this.order = order;
-    }    
 
     public void setSauce(Sauce sauce) {
         this.sauce = sauce;
@@ -79,7 +92,5 @@ public class Pizza {
     public void setTopping2(Topping topping2) {
         this.topping2 = topping2;
     }
-    
-    
-    
+
 }
