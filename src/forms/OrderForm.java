@@ -38,10 +38,11 @@ public class OrderForm extends javax.swing.JFrame {
 
         btnNewPizza = new javax.swing.JButton();
         btnEdit_Delete = new javax.swing.JButton();
-        txtInfo = new javax.swing.JTextField();
         lblOrderCost = new javax.swing.JLabel();
         txtOrderCost = new javax.swing.JTextField();
         btnClose = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtInfo = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("HOME/ORDER FORM");
@@ -63,15 +64,16 @@ public class OrderForm extends javax.swing.JFrame {
             }
         });
 
-        txtInfo.setEditable(false);
-        txtInfo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-
         lblOrderCost.setText("TOTAL ORDER COST");
 
         txtOrderCost.setEditable(false);
         txtOrderCost.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         btnClose.setText("CLOSE");
+
+        txtInfo.setColumns(20);
+        txtInfo.setRows(5);
+        jScrollPane1.setViewportView(txtInfo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,18 +82,18 @@ public class OrderForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtInfo)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnNewPizza)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEdit_Delete)
-                        .addGap(0, 160, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblOrderCost)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtOrderCost)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnClose)))
+                        .addComponent(btnClose))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnNewPizza)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEdit_Delete)
+                        .addGap(0, 160, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -102,13 +104,13 @@ public class OrderForm extends javax.swing.JFrame {
                     .addComponent(btnNewPizza)
                     .addComponent(btnEdit_Delete))
                 .addGap(18, 18, 18)
-                .addComponent(txtInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOrderCost)
                     .addComponent(txtOrderCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClose))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,13 +118,9 @@ public class OrderForm extends javax.swing.JFrame {
 
     private void btnNewPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewPizzaActionPerformed
         // TODO add your handling code here:
-        NewPizzaForm form = new NewPizzaForm();
-        
-        form.setVisible(true);
-        txtInfo.setText("");
+        NewPizzaForm form = new NewPizzaForm(this);        
+        form.setVisible(true);       
         txtInfo.setText(myOrder.getOrder());
-        
-        
     }//GEN-LAST:event_btnNewPizzaActionPerformed
 
     private void btnEdit_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit_DeleteActionPerformed
@@ -131,6 +129,12 @@ public class OrderForm extends javax.swing.JFrame {
         form.setVisible(true);
     }//GEN-LAST:event_btnEdit_DeleteActionPerformed
 
+    public void addPizza(Pizza  pizza){
+        myOrder.addOrder(pizza);
+        txtInfo.setText(myOrder.getOrder());
+        txtOrderCost.setText("£"+String.valueOf(myOrder.getCostOrder()));
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -170,8 +174,9 @@ public class OrderForm extends javax.swing.JFrame {
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnEdit_Delete;
     private javax.swing.JButton btnNewPizza;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblOrderCost;
-    private javax.swing.JTextField txtInfo;
+    private javax.swing.JTextArea txtInfo;
     private javax.swing.JTextField txtOrderCost;
     // End of variables declaration//GEN-END:variables
 }
