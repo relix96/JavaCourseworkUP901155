@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package forms;
+import Enums.*;
+import classes.*;
+
 
 /**
  *
@@ -14,8 +17,41 @@ public class NewPizzaForm extends javax.swing.JFrame {
     /**
      * Creates new form NewPizzaForm
      */
+    private Pizza pizza;
+    private OrderForm orderForm;
+    
+    
     public NewPizzaForm() {
         initComponents();
+        pizza = new Pizza();
+        for(Size s : Size.values()){
+            this.cbbSize.addItem(s.name());
+            pizza.setSize(Size.valueOf(cbbSize.getSelectedItem().toString()));
+        }
+        
+        for(Crust c : Crust.values()){
+            this.cbbCrust.addItem(c.name());
+            pizza.setCrust(Crust.valueOf(cbbCrust.getSelectedItem().toString()));
+        }
+        
+        for(Sauce s : Sauce.values()){
+            this.cbbSauce.addItem(s.name());
+            pizza.setSauce(Sauce.valueOf(cbbSauce.getSelectedItem().toString()));
+        }
+        
+        for(Topping t : Topping.values()){
+            this.cbbTopping1.addItem(t.name());
+            pizza.setTopping1(Topping.valueOf(cbbTopping1.getSelectedItem().toString()));
+        }
+        
+         for(Topping t : Topping.values()){
+            this.cbbTopping2.addItem(t.name());
+            pizza.setTopping2(Topping.valueOf(cbbTopping2.getSelectedItem().toString()));
+        }
+         
+         this.txtInfoPizza.setText(pizza.pizzaInfo());
+         
+         
     }
 
     /**
@@ -27,21 +63,184 @@ public class NewPizzaForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        cbbSize = new javax.swing.JComboBox<>();
+        lblSize = new javax.swing.JLabel();
+        cbbCrust = new javax.swing.JComboBox<>();
+        lblCrust = new javax.swing.JLabel();
+        cbbTopping1 = new javax.swing.JComboBox<>();
+        lblTopping1 = new javax.swing.JLabel();
+        lblTopping2 = new javax.swing.JLabel();
+        cbbTopping2 = new javax.swing.JComboBox<>();
+        cbbSauce = new javax.swing.JComboBox<>();
+        lblSauce = new javax.swing.JLabel();
+        txtInfoPizza = new javax.swing.JTextField();
+        btnAddOrder = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        cbbSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbSizeActionPerformed(evt);
+            }
+        });
+
+        lblSize.setText("SIZE");
+
+        cbbCrust.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbCrustActionPerformed(evt);
+            }
+        });
+
+        lblCrust.setText("CRUST");
+
+        cbbTopping1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbTopping1ActionPerformed(evt);
+            }
+        });
+
+        lblTopping1.setText("TOPPING 1");
+
+        lblTopping2.setText("TOPPING 2");
+
+        cbbTopping2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbTopping2ActionPerformed(evt);
+            }
+        });
+
+        cbbSauce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbSauceActionPerformed(evt);
+            }
+        });
+
+        lblSauce.setText("SAUCE");
+
+        txtInfoPizza.setEditable(false);
+        txtInfoPizza.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtInfoPizza.setToolTipText("");
+        txtInfoPizza.setAutoscrolls(false);
+        txtInfoPizza.setFocusable(false);
+
+        btnAddOrder.setText("ADD TO ORDER");
+        btnAddOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrderActionPerformed(evt);
+            }
+        });
+
+        btnCancel.setText("CANCEL");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtInfoPizza)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 108, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCrust, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTopping1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSize, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSauce, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTopping2, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbbSauce, 0, 139, Short.MAX_VALUE)
+                                    .addComponent(cbbTopping2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbbTopping1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbbCrust, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbbSize, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnCancel)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAddOrder)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSize))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbCrust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCrust))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbTopping1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTopping1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTopping2)
+                    .addComponent(cbbTopping2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbSauce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSauce))
+                .addGap(32, 32, 32)
+                .addComponent(txtInfoPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddOrder)
+                    .addComponent(btnCancel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnAddOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrderActionPerformed
+        // TODO add your handling code here:
+        pizza.setCrust(Crust.valueOf(cbbCrust.getSelectedItem().toString()));
+        pizza.setSauce(Sauce.valueOf(cbbSauce.getSelectedItem().toString()));
+        pizza.setSize(Size.valueOf(cbbSize.getSelectedItem().toString()));
+        pizza.setTopping1(Topping.valueOf(cbbTopping1.getSelectedItem().toString()));
+        pizza.setTopping2(Topping.valueOf(cbbTopping2.getSelectedItem().toString()));
+        this.orderForm.myOrder.addOrder(pizza);
+        this.dispose();
+    }//GEN-LAST:event_btnAddOrderActionPerformed
+
+    private void cbbSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbSizeActionPerformed
+        // TODO add your handling code here:5
+        txtInfoPizza.setText("");
+    }//GEN-LAST:event_cbbSizeActionPerformed
+
+    private void cbbCrustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbCrustActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbCrustActionPerformed
+
+    private void cbbTopping1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTopping1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbTopping1ActionPerformed
+
+    private void cbbTopping2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTopping2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbTopping2ActionPerformed
+
+    private void cbbSauceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbSauceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbSauceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +278,18 @@ public class NewPizzaForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddOrder;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JComboBox<String> cbbCrust;
+    private javax.swing.JComboBox<String> cbbSauce;
+    private javax.swing.JComboBox<String> cbbSize;
+    private javax.swing.JComboBox<String> cbbTopping1;
+    private javax.swing.JComboBox<String> cbbTopping2;
+    private javax.swing.JLabel lblCrust;
+    private javax.swing.JLabel lblSauce;
+    private javax.swing.JLabel lblSize;
+    private javax.swing.JLabel lblTopping1;
+    private javax.swing.JLabel lblTopping2;
+    private javax.swing.JTextField txtInfoPizza;
     // End of variables declaration//GEN-END:variables
 }

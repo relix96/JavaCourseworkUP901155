@@ -23,6 +23,9 @@ public class Order {
         Pizza pizza = new Pizza(size,crust,sauce,topping1,topping2);
         pizzas.add(pizza);
     }
+    public void addOrder(Pizza pizza){
+        pizzas.add(pizza);
+    }
     
      public String getOrder(){   
         String info="";

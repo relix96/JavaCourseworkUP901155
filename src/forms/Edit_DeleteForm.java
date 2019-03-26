@@ -27,17 +27,110 @@ public class Edit_DeleteForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        lblSize = new javax.swing.JLabel();
+        btnAddOrder = new javax.swing.JButton();
+        cbbCrust = new javax.swing.JComboBox<>();
+        btnCancel = new javax.swing.JButton();
+        lblCrust = new javax.swing.JLabel();
+        cbbTopping1 = new javax.swing.JComboBox<>();
+        lblTopping1 = new javax.swing.JLabel();
+        lblTopping2 = new javax.swing.JLabel();
+        cbbTopping2 = new javax.swing.JComboBox<>();
+        cbbSauce = new javax.swing.JComboBox<>();
+        lblSauce = new javax.swing.JLabel();
+        cbbSize = new javax.swing.JComboBox<>();
+        txtInfoPizza = new javax.swing.JTextField();
+        btnPrevious = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        lblSize.setText("SIZE");
+
+        btnAddOrder.setText("ADD TO ORDER");
+
+        btnCancel.setText("CANCEL");
+
+        lblCrust.setText("CRUST");
+
+        lblTopping1.setText("TOPPING 1");
+
+        lblTopping2.setText("TOPPING 2");
+
+        lblSauce.setText("SAUCE");
+
+        txtInfoPizza.setEditable(false);
+
+        btnPrevious.setText("<");
+        btnPrevious.setActionCommand("Previous");
+
+        btnNext.setText(">");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtInfoPizza)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 163, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCrust, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblTopping1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblSize, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblSauce, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblTopping2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbbSauce, 0, 139, Short.MAX_VALUE)
+                            .addComponent(cbbTopping2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbbTopping1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbbCrust, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbbSize, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnPrevious)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNext)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCancel)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAddOrder)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSize))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbCrust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCrust))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbTopping1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTopping1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTopping2)
+                    .addComponent(cbbTopping2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbSauce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSauce))
+                .addGap(32, 32, 32)
+                .addComponent(txtInfoPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddOrder)
+                    .addComponent(btnCancel)
+                    .addComponent(btnPrevious)
+                    .addComponent(btnNext))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +172,20 @@ public class Edit_DeleteForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddOrder;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnPrevious;
+    private javax.swing.JComboBox<String> cbbCrust;
+    private javax.swing.JComboBox<String> cbbSauce;
+    private javax.swing.JComboBox<String> cbbSize;
+    private javax.swing.JComboBox<String> cbbTopping1;
+    private javax.swing.JComboBox<String> cbbTopping2;
+    private javax.swing.JLabel lblCrust;
+    private javax.swing.JLabel lblSauce;
+    private javax.swing.JLabel lblSize;
+    private javax.swing.JLabel lblTopping1;
+    private javax.swing.JLabel lblTopping2;
+    private javax.swing.JTextField txtInfoPizza;
     // End of variables declaration//GEN-END:variables
 }

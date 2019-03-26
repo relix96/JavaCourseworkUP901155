@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package forms;
+import classes.*;
 
 /**
  *
@@ -14,8 +15,16 @@ public class OrderForm extends javax.swing.JFrame {
     /**
      * Creates new form OrderForm
      */
+    
+    public Order myOrder;
     public OrderForm() {
         initComponents();
+        myOrder = new Order();
+             
+        if(myOrder.getCountPizzas()==0)
+            this.txtOrderCost.setText("£0.00");        
+        else
+            this.txtOrderCost.setText("£"+String.valueOf(myOrder.getCostOrder()));
     }
 
     /**
@@ -27,21 +36,100 @@ public class OrderForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        btnNewPizza = new javax.swing.JButton();
+        btnEdit_Delete = new javax.swing.JButton();
+        txtInfo = new javax.swing.JTextField();
+        lblOrderCost = new javax.swing.JLabel();
+        txtOrderCost = new javax.swing.JTextField();
+        btnClose = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("HOME/ORDER FORM");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setName(""); // NOI18N
+
+        btnNewPizza.setText("NEW PIZZA");
+        btnNewPizza.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        btnNewPizza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewPizzaActionPerformed(evt);
+            }
+        });
+
+        btnEdit_Delete.setLabel("EDIT/DELETE PIZZA");
+        btnEdit_Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEdit_DeleteActionPerformed(evt);
+            }
+        });
+
+        txtInfo.setEditable(false);
+        txtInfo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+
+        lblOrderCost.setText("TOTAL ORDER COST");
+
+        txtOrderCost.setEditable(false);
+        txtOrderCost.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        btnClose.setText("CLOSE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtInfo)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnNewPizza)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEdit_Delete)
+                        .addGap(0, 160, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblOrderCost)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtOrderCost)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnClose)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNewPizza)
+                    .addComponent(btnEdit_Delete))
+                .addGap(18, 18, 18)
+                .addComponent(txtInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOrderCost)
+                    .addComponent(txtOrderCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClose))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNewPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewPizzaActionPerformed
+        // TODO add your handling code here:
+        NewPizzaForm form = new NewPizzaForm();
+        
+        form.setVisible(true);
+        txtInfo.setText("");
+        txtInfo.setText(myOrder.getOrder());
+        
+        
+    }//GEN-LAST:event_btnNewPizzaActionPerformed
+
+    private void btnEdit_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit_DeleteActionPerformed
+        // TODO add your handling code here:
+        Edit_DeleteForm form = new Edit_DeleteForm();
+        form.setVisible(true);
+    }//GEN-LAST:event_btnEdit_DeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +167,11 @@ public class OrderForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnEdit_Delete;
+    private javax.swing.JButton btnNewPizza;
+    private javax.swing.JLabel lblOrderCost;
+    private javax.swing.JTextField txtInfo;
+    private javax.swing.JTextField txtOrderCost;
     // End of variables declaration//GEN-END:variables
 }
