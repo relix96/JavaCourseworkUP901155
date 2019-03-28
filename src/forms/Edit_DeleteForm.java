@@ -237,9 +237,11 @@ public class Edit_DeleteForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Count pizzas:"+orderForm.myOrder.getCountPizzas()+" | idx="+idx);
         if(idx+1 < orderForm.myOrder.getCountPizzas()){
+            System.out.println("Before show pizzaInfo:"+orderForm.myOrder.getPizzaByIndex(0).pizzaInfo());
             idx++;
-            System.out.println("Count pizzas:"+orderForm.myOrder.getCountPizzas()+" | idx="+idx);
+            System.out.println("Count pizzas:"+orderForm.myOrder.getPizzaByIndex(0).pizzaInfo());
             showPizzaInfo(idx,pizza);
+            System.out.println("After show pizzaInfo:"+orderForm.myOrder.getPizzaByIndex(0).pizzaInfo());
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
