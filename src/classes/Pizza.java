@@ -36,6 +36,7 @@ public class Pizza {
 
     public double pizzaCost() {
         double cost = size.getSize() + crust.getCrust() + sauce.getSauce() + topping1.getTopping() * 5 + topping2.getTopping() * 4;
+        //cost = Double.valueOf(String.format("%1$.2f", cost));
         return cost;
     }
 

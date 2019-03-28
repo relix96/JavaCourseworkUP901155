@@ -49,10 +49,7 @@ public class NewPizzaForm extends javax.swing.JFrame {
             this.cbbTopping2.addItem(t.name());
             pizza.setTopping2(Topping.valueOf(cbbTopping2.getSelectedItem().toString()));
         }
-         
          this.txtInfoPizza.setText(pizza.pizzaInfo());
-         
-         
     }
 
     /**
@@ -74,31 +71,32 @@ public class NewPizzaForm extends javax.swing.JFrame {
         cbbTopping2 = new javax.swing.JComboBox<>();
         cbbSauce = new javax.swing.JComboBox<>();
         lblSauce = new javax.swing.JLabel();
-        txtInfoPizza = new javax.swing.JTextField();
         btnAddOrder = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtInfoPizza = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        cbbSize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbSizeActionPerformed(evt);
+        cbbSize.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbSizeItemStateChanged(evt);
             }
         });
 
         lblSize.setText("SIZE");
 
-        cbbCrust.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbCrustActionPerformed(evt);
+        cbbCrust.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbCrustItemStateChanged(evt);
             }
         });
 
         lblCrust.setText("CRUST");
 
-        cbbTopping1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbTopping1ActionPerformed(evt);
+        cbbTopping1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbTopping1ItemStateChanged(evt);
             }
         });
 
@@ -106,25 +104,19 @@ public class NewPizzaForm extends javax.swing.JFrame {
 
         lblTopping2.setText("TOPPING 2");
 
-        cbbTopping2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbTopping2ActionPerformed(evt);
+        cbbTopping2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbTopping2ItemStateChanged(evt);
             }
         });
 
-        cbbSauce.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbSauceActionPerformed(evt);
+        cbbSauce.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbSauceItemStateChanged(evt);
             }
         });
 
         lblSauce.setText("SAUCE");
-
-        txtInfoPizza.setEditable(false);
-        txtInfoPizza.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtInfoPizza.setToolTipText("");
-        txtInfoPizza.setAutoscrolls(false);
-        txtInfoPizza.setFocusable(false);
 
         btnAddOrder.setText("ADD TO ORDER");
         btnAddOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -140,15 +132,20 @@ public class NewPizzaForm extends javax.swing.JFrame {
             }
         });
 
+        txtInfoPizza.setEditable(false);
+        txtInfoPizza.setColumns(20);
+        txtInfoPizza.setRows(5);
+        jScrollPane1.setViewportView(txtInfoPizza);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtInfoPizza)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(0, 108, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -194,8 +191,8 @@ public class NewPizzaForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbbSauce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSauce))
-                .addGap(32, 32, 32)
-                .addComponent(txtInfoPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddOrder)
@@ -213,36 +210,57 @@ public class NewPizzaForm extends javax.swing.JFrame {
 
     private void btnAddOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrderActionPerformed
         // TODO add your handling code here:
-        pizza.setCrust(Crust.valueOf(cbbCrust.getSelectedItem().toString()));
-        pizza.setSauce(Sauce.valueOf(cbbSauce.getSelectedItem().toString()));
-        pizza.setSize(Size.valueOf(cbbSize.getSelectedItem().toString()));
-        pizza.setTopping1(Topping.valueOf(cbbTopping1.getSelectedItem().toString()));
-        pizza.setTopping2(Topping.valueOf(cbbTopping2.getSelectedItem().toString()));
         this.orderForm.addPizza(pizza);
         this.dispose();
     }//GEN-LAST:event_btnAddOrderActionPerformed
 
-    private void cbbSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbSizeActionPerformed
-        // TODO add your handling code here:5
-        txtInfoPizza.setText("");
-    }//GEN-LAST:event_cbbSizeActionPerformed
-
-    private void cbbCrustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbCrustActionPerformed
+    private void cbbSizeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbSizeItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbbCrustActionPerformed
+        if(evt.getStateChange() != java.awt.event.ItemEvent.SELECTED ){
+            pizza.setSize(Size.valueOf(cbbSize.getSelectedItem().toString()));
+            infoPizza(pizza);
+        }
+       
+        
+    }//GEN-LAST:event_cbbSizeItemStateChanged
 
-    private void cbbTopping1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTopping1ActionPerformed
+    private void cbbSauceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbSauceItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbbTopping1ActionPerformed
+         if(evt.getStateChange() != java.awt.event.ItemEvent.SELECTED ){
+            pizza.setSauce(Sauce.valueOf(cbbSauce.getSelectedItem().toString()));
+            infoPizza(pizza);
+         }
+    }//GEN-LAST:event_cbbSauceItemStateChanged
 
-    private void cbbTopping2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTopping2ActionPerformed
+    private void cbbTopping2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbTopping2ItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbbTopping2ActionPerformed
+         if(evt.getStateChange() != java.awt.event.ItemEvent.SELECTED ){
+            pizza.setTopping2(Topping.valueOf(cbbTopping2.getSelectedItem().toString()));
+            infoPizza(pizza);
+         }
+    }//GEN-LAST:event_cbbTopping2ItemStateChanged
 
-    private void cbbSauceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbSauceActionPerformed
+    private void cbbCrustItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbCrustItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbbSauceActionPerformed
+        if(evt.getStateChange() != java.awt.event.ItemEvent.SELECTED ){
+            pizza.setCrust(Crust.valueOf(cbbCrust.getSelectedItem().toString()));
+            infoPizza(pizza);
+         }
+    }//GEN-LAST:event_cbbCrustItemStateChanged
 
+    private void cbbTopping1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbTopping1ItemStateChanged
+        // TODO add your handling code here:
+        if(evt.getStateChange() != java.awt.event.ItemEvent.SELECTED ){
+            pizza.setTopping1(Topping.valueOf(cbbTopping1.getSelectedItem().toString()));
+            infoPizza(pizza);
+         }
+    }//GEN-LAST:event_cbbTopping1ItemStateChanged
+
+    private void infoPizza(Pizza pizza){
+        this.txtInfoPizza.setText(pizza.pizzaInfo());
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -286,11 +304,12 @@ public class NewPizzaForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbbSize;
     private javax.swing.JComboBox<String> cbbTopping1;
     private javax.swing.JComboBox<String> cbbTopping2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCrust;
     private javax.swing.JLabel lblSauce;
     private javax.swing.JLabel lblSize;
     private javax.swing.JLabel lblTopping1;
     private javax.swing.JLabel lblTopping2;
-    private javax.swing.JTextField txtInfoPizza;
+    private javax.swing.JTextArea txtInfoPizza;
     // End of variables declaration//GEN-END:variables
 }

@@ -51,6 +51,10 @@ public class Order {
          pizzas.remove(idx);
      }
      
+     public Pizza getPizzaByIndex(int idx){
+         return pizzas.get(idx);
+     }
+     
      public void updatePizza(int idx, Size size, Crust crust, Sauce sauce, Topping topping1, Topping topping2){
         pizzas.get(idx).setSize(size);
         pizzas.get(idx).setCrust(crust);

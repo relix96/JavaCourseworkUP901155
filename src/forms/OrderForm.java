@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package forms;
+import Enums.Crust;
+import Enums.Sauce;
+import Enums.Size;
+import Enums.Topping;
 import classes.*;
 
 /**
@@ -20,7 +24,12 @@ public class OrderForm extends javax.swing.JFrame {
     public OrderForm() {
         initComponents();
         myOrder = new Order();
-             
+        myOrder.addOrder(Size.LARGE, Crust.THIN, Sauce.TOMATO, Topping.MUSHROOM, Topping.OLIVES);
+        myOrder.addOrder(Size.MEDIUM, Crust.STUFFED, Sauce.TOMATO, Topping.PEPPERONI, Topping.EXTRA_CHEESE);
+        myOrder.addOrder(Size.SMALL, Crust.DEEP, Sauce.PESTO, Topping.CHILLI, Topping.ONION);
+        
+        
+        this.txtInfo.setText(myOrder.getOrder());
         if(myOrder.getCountPizzas()==0)
             this.txtOrderCost.setText("£0.00");        
         else
@@ -71,6 +80,7 @@ public class OrderForm extends javax.swing.JFrame {
 
         btnClose.setText("CLOSE");
 
+        txtInfo.setEditable(false);
         txtInfo.setColumns(20);
         txtInfo.setRows(5);
         jScrollPane1.setViewportView(txtInfo);
@@ -125,12 +135,27 @@ public class OrderForm extends javax.swing.JFrame {
 
     private void btnEdit_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit_DeleteActionPerformed
         // TODO add your handling code here:
-        Edit_DeleteForm form = new Edit_DeleteForm();
-        form.setVisible(true);
+        if(myOrder.getCountPizzas() !=0){
+            Edit_DeleteForm form = new Edit_DeleteForm(this);
+            form.setVisible(true);
+            txtInfo.setText(myOrder.getOrder());
+        }
     }//GEN-LAST:event_btnEdit_DeleteActionPerformed
 
     public void addPizza(Pizza  pizza){
         myOrder.addOrder(pizza);
+        txtInfo.setText(myOrder.getOrder());
+        txtOrderCost.setText("£"+String.valueOf(myOrder.getCostOrder()));
+    }
+    
+    public void deletePizza(int idx){
+        myOrder.deletePizza(idx);
+        txtInfo.setText(myOrder.getOrder());
+        txtOrderCost.setText("£"+String.valueOf(myOrder.getCostOrder()));
+    }
+    
+    public void updatePizza(int idx, Pizza pizza){
+        myOrder.updatePizza(idx, pizza);
         txtInfo.setText(myOrder.getOrder());
         txtOrderCost.setText("£"+String.valueOf(myOrder.getCostOrder()));
     }
