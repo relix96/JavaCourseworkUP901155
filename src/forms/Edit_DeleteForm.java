@@ -290,6 +290,7 @@ public class Edit_DeleteForm extends javax.swing.JFrame {
     private void cbbTopping2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbTopping2ItemStateChanged
         // TODO add your handling code here:
         if(evt.getStateChange() != java.awt.event.ItemEvent.SELECTED ){
+            pizza = orderForm.myOrder.getPizzaByIndex(idx);
             pizza.setTopping2(Topping.valueOf(cbbTopping2.getSelectedItem().toString()));
             infoPizza(pizza);
          }
@@ -298,9 +299,11 @@ public class Edit_DeleteForm extends javax.swing.JFrame {
     private void cbbSauceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbSauceItemStateChanged
         // TODO add your handling code here:
         if(evt.getStateChange() != java.awt.event.ItemEvent.SELECTED ){
+            pizza = orderForm.myOrder.getPizzaByIndex(idx);
             pizza.setSauce(Sauce.valueOf(cbbSauce.getSelectedItem().toString()));
             infoPizza(pizza);
-         }
+        }
+         
     }//GEN-LAST:event_cbbSauceItemStateChanged
 
      private void infoPizza(Pizza pizza){
