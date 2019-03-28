@@ -24,7 +24,7 @@ public class OrderForm extends javax.swing.JFrame {
     public OrderForm() {
         initComponents();
         myOrder = new Order();
-        myOrder.addOrder(Size.LARGE, Crust.THIN, Sauce.TOMATO, Topping.MUSHROOM, Topping.OLIVES);
+        myOrder.addOrder(Size.LARGE, Crust.THIN, Sauce.PESTO, Topping.MUSHROOM, Topping.OLIVES);
         myOrder.addOrder(Size.MEDIUM, Crust.STUFFED, Sauce.TOMATO, Topping.PEPPERONI, Topping.EXTRA_CHEESE);
         myOrder.addOrder(Size.SMALL, Crust.DEEP, Sauce.PESTO, Topping.CHILLI, Topping.ONION);
         
