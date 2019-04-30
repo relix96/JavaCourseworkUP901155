@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package forms;
-import Enums.Crust;
-import Enums.Sauce;
-import Enums.Size;
-import Enums.Topping;
+
 import classes.*;
 
 /**
@@ -24,8 +21,7 @@ public class OrderForm extends javax.swing.JFrame {
     public OrderForm() {
         initComponents();
         myOrder = new Order();
-       
-        
+      
         this.txtInfo.setText(myOrder.getOrder());
         if(myOrder.getCountPizzas()==0)
             this.txtOrderCost.setText("£0.00");        
@@ -135,8 +131,7 @@ public class OrderForm extends javax.swing.JFrame {
         if(myOrder.getCountPizzas() !=0){
             Edit_DeleteForm form = new Edit_DeleteForm(this);
             form.setVisible(true);
-            txtInfo.setText(myOrder.getOrder());
-        }
+           }
     }//GEN-LAST:event_btnEdit_DeleteActionPerformed
 
     public void addPizza(Pizza  pizza){

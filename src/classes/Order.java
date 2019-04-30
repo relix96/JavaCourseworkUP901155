@@ -17,6 +17,8 @@ public class Order {
     
     public Order(){
         pizzas = new ArrayList<Pizza>();
+        
+        
     }
     
     public void addOrder(Size size, Crust crust, Sauce sauce, Topping topping1, Topping topping2){
