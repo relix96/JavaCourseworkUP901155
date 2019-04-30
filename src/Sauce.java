@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Enums;
+
 
 /**
  *
@@ -24,7 +24,4 @@ public enum Sauce {
         return this.sauce;
     }
     
-    public String getInfo(){
-        return String.valueOf(sauce);
-    }
 }

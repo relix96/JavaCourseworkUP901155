@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package forms;
 
-import Enums.*;
-import classes.Pizza;
+
+
 /**
  *
  * @author Zé Maria Valentim

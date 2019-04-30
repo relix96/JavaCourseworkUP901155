@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package classes;
 
-import Enums.Size;
-import Enums.Topping;
-import Enums.Sauce;
-import Enums.Crust;
+
+
 
 /**
  *
@@ -36,7 +33,7 @@ public class Pizza {
 
     public double pizzaCost() {
         double cost = size.getSize() + crust.getCrust() + sauce.getSauce() + topping1.getTopping() * 5 + topping2.getTopping() * 4;
-        double newCost = Math.round(cost*100.0)/100.0;
+        double newCost =  Math.round(cost*100.0)/100.0;
         return newCost;
     }
 

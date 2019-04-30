@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Enums;
+
 
 /**
  *
@@ -25,10 +25,5 @@ public enum Topping {
         return this.topping;
     }    
     
-    public String getInfo(){
-        String info="";
-        info = String.valueOf(topping)+"\n";
-        return info;
-    }
     
 }
