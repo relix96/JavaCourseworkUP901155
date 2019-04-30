@@ -54,13 +54,15 @@ public class pizzaClassTest {
         
         System.out.println("----------- Show order with pizza2, pizza3, pizza4 and pizza5 to my Order "+myOrder.getOrder());
         
-         System.out.println("----------- Update topping 1 on the pizza 3 to Peperoni ");
+        System.out.println("----------- Update topping 1 on the pizza 3 to Peperoni on the position 3 on the myOrder");
         pizza3.setTopping1(Topping.PEPPERONI);
         myOrder.updatePizza(4, pizza3);
+        System.out.println("----------- Show order with pizza updated");
         System.out.println(myOrder.getOrder());
         
+        System.out.println("----------- Delete pizza on myOrder on the possition 3 ");
         myOrder.deletePizza(3);
-        
+        System.out.println("----------- Show myOrder without pizza on the 3 position");
         System.out.println(myOrder.getOrder());
         
     }
