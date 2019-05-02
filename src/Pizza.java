@@ -44,7 +44,7 @@ public class Pizza {
         info += "TOTAL COST: £" + String.valueOf(cost) + "\n";
         info += String.valueOf(size) + " Size: " + "£" + size.getSize() + "\n";
         info += String.valueOf(crust) + " Crust: " + "£" + crust.getCrust() + "\n";
-        info += "BASE COST: " + "£" + (sauce.getSauce()+crust.getCrust()) + "\n";
+        info += "BASE COST: " + "£" + (size.getSize()+crust.getCrust()) + "\n";
         info += String.valueOf(topping1) + ": " + "5*£" + topping1.getTopping() + "=£" + topping1.getTopping() * 5 + "\n";
         info += String.valueOf(topping2) + ": " + "4*£" + topping2.getTopping() + "=£" + topping2.getTopping() * 4 + "\n\n";
 
